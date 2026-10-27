@@ -16,15 +16,28 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>МирСтади · Обществознание ЕГЭ</title>
     <script>
+      // Открыто как мини-приложение Telegram? Тогда подключаем его официальный скрипт (лежит рядом,
+      // без обращения к telegram.org) — до запуска приложения, чтобы данные Telegram были готовы сразу.
+      (function () {
+        var tg = false;
+        try {
+          tg = /tgWebApp/.test(location.hash + location.search) ||
+            !!sessionStorage.getItem("__telegram__initParams") || !!window.TelegramWebviewProxy;
+        } catch (e) {}
+        if (tg) document.write('<script src="./tg-web-app.js"><\/script>');
+      })();
+    </script>
+    <script>
       // тема до загрузки приложения — чтобы не было «вспышки» светлого фона
       try {
         var t = localStorage.getItem("ms:theme") || "auto";
-        var dark = t === "dark" || (t === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        var tgs = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData && window.Telegram.WebApp.colorScheme;
+        var dark = t === "dark" || (t === "auto" && (tgs ? tgs === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches));
         document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
       } catch (e) {}
     </script>
-    <script type="module" crossorigin src="./assets/index-CwckjE6f.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DrXsIjD1.css">
+    <script type="module" crossorigin src="./assets/index-DXVHisf0.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BybzVU8h.css">
   </head>
   <body>
     <div id="root"></div>
