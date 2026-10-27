@@ -1,6 +1,6 @@
 // Офлайн-режим демо-сайта МирСтади: всё нужное хранится на устройстве после первого открытия.
-const CACHE = "mirstudy-demo-d2c2df1936";
-const FILES = ["./", "assets/index-BrsRwT3t.js", "assets/index-D3bYcHNE.css", "favicon.svg", "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png", "index.html", "manifest.webmanifest", "tg-web-app.js"];
+const CACHE = "mirstudy-demo-700a98273f";
+const FILES = ["./", "assets/index-D8DH08AY.js", "assets/index-DOPioj6W.css", "favicon.svg", "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-512.png", "index.html", "install.sh", "manifest.webmanifest", "tg-web-app.js"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
 });
